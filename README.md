@@ -5,6 +5,7 @@
 -- Functional requirements:
  - The application shall collect data traffic from selectable ethernet ports. Eg eth1, eth2 or all.
  - The application shall create statistics about the upload and download traffic also for each selected eth and their sum also.
+ - The application shall have an automatic run at OS startup option.
  
 -- System modules:
  - UI: user interactions to schedule data traffic acquisition and display statistic  
