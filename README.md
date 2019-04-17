@@ -13,4 +13,5 @@
  - Logger: logging events, operations for debugging released application
 
 # Project Map
+folders:
 - install: contains the installer for WinPcap. official website is https://www.winpcap.org/
