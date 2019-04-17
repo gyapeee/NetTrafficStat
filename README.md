@@ -11,3 +11,6 @@
  - UI: user interactions to schedule data traffic acquisition and display statistic  
  - StatisticCollector: runs, stops data traffic acquisition on configured ethernet ports.
  - Logger: logging events, operations for debugging released application
+
+# Project Map
+- install: contains the installer for WinPcap. official website is https://www.winpcap.org/
