@@ -10,9 +10,16 @@
       <dependency>
         <groupId>org.pcap4j</groupId>
         <artifactId>pcap4j-core</artifactId>
-        <version>1.7.3</version>
         <type>jar</type>
     </dependency>
+      <dependency>
+      	<groupId>org.slf4j</groupId>
+      	<artifactId>slf4j-log4j12</artifactId>
+      </dependency>
+      <dependency>
+      	<groupId>org.slf4j</groupId>
+      	<artifactId>slf4j-api</artifactId>
+      </dependency>
   </dependencies>
   
   <build>
@@ -61,4 +68,23 @@
             </plugin>
         </plugins>
     </build>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>org.slf4j</groupId>
+  			<artifactId>slf4j-log4j12</artifactId>
+  			<version>1.8.0-beta4</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.slf4j</groupId>
+  			<artifactId>slf4j-api</artifactId>
+  			<version>1.8.0-beta4</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.pcap4j</groupId>
+  			<artifactId>pcap4j-core</artifactId>
+  			<version>1.7.3</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
 </project>

@@ -14,6 +14,9 @@ import org.pcap4j.core.PcapNativeException;
 import org.pcap4j.core.PcapNetworkInterface;
 import org.pcap4j.core.Pcaps;
 import org.pcap4j.util.NifSelector;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.apache.log4j.BasicConfigurator;
 
 /*
  * Importing stuffs for JavaFX GUI tutorial
@@ -34,11 +37,13 @@ import javafx.stage.Stage;
 public class NetTrafficStatApp extends Application{
 
 	private TextArea textArea;
+	static private Logger logger;
 	
 	public NetTrafficStatApp() {
         // Pcap4J comes with a convenient method for listing
         // all the available network devices
         try {
+        	logger = LoggerFactory.getLogger(NetTrafficStatApp.class);
             // The list contains all the devices
             List<PcapNetworkInterface> devices = null;
             textArea = new TextArea();
@@ -47,13 +52,13 @@ public class NetTrafficStatApp extends Application{
             devices = Pcaps.findAllDevs();
             
             // Print out all about the devices
-            System.out.println("These are the devices:" );
             textArea.appendText("These are the devices:\n");
             devices.forEach((device) -> {
-            	System.out.println(device.getDescription());
+            	String description = device.getDescription(); 
             	
                 // Adding devices to the TextArea
-                textArea.appendText(device.getDescription() + "\n");
+                textArea.appendText(description + "\n");
+                logger.info(description);
             });
         } catch (PcapNativeException e) {
             e.printStackTrace();
@@ -79,6 +84,9 @@ public class NetTrafficStatApp extends Application{
 	 * @param args
 	 */
 	public static void main(String[] args) {
+	     // Set up a simple configuration that logs on the console.
+	     BasicConfigurator.configure();
+		
 		// This is the Entry point of the Application
 		launch(args);
 	}
